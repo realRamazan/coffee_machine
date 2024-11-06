@@ -17,6 +17,6 @@ public class Recipe {
     private String coffeeId;
 
     @OneToMany
-    @JoinColumn(name = "recipe_ingredients_id")
-    private List<RecipeIngredient> recipeIngredients;
+    @JoinColumn(name = "recipe_ingredient_id")
+    private List<RecipeIngredient> recipeIngredient;
 }

@@ -4,9 +4,9 @@ import com.solva.coffeemachine.dto.AddCoffeeRecipeDTO;
 import com.solva.coffeemachine.entity.CoffeeStatistic;
 import com.solva.coffeemachine.entity.Ingredient;
 import com.solva.coffeemachine.entity.Recipe;
-import com.solva.coffeemachine.service.CoffeeIngredientsService;
-import com.solva.coffeemachine.service.CoffeeStatisticsService;
-import com.solva.coffeemachine.service.IngredientsService;
+import com.solva.coffeemachine.service.CoffeeIngredientService;
+import com.solva.coffeemachine.service.CoffeeStatisticService;
+import com.solva.coffeemachine.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,33 +22,38 @@ public class CoffeeMachineController {
     }
 
     @Autowired
-    private IngredientsService ingredientsService;
+    private IngredientService ingredientService;
 
     @Autowired
-    private CoffeeIngredientsService coffeeIngredientsService;
+    private CoffeeIngredientService coffeeIngredientService;
 
     @Autowired
-    private CoffeeStatisticsService coffeeStatisticsService;
+    private CoffeeStatisticService coffeeStatisticService;
 
     @GetMapping("/quantity")
     public List<Ingredient> checkQuantityOfIngredients() {
-        return ingredientsService.checkIngredients();
+        return ingredientService.checkIngredients();
     }
 
     @PostMapping("/order/{id}")
     public List<Recipe> orderCoffee(@PathVariable String id){
-        return ingredientsService.orderCoffee(id);
+        return ingredientService.orderCoffee(id);
+    }
+
+    @PostMapping("/selectedRecipe/{id}")
+    public String selectedRecipe(String id){
+        return ingredientService.selectedRecipeOrder(id);
     }
 
     @PostMapping("/addNewRecipes/{id}")
     public String addCoffee(@PathVariable String id,
             @RequestBody AddCoffeeRecipeDTO addCoffeeRecipeDTO){
-        return coffeeIngredientsService.addCoffeeRecipe(addCoffeeRecipeDTO, id);
+        return coffeeIngredientService.addCoffeeRecipe(addCoffeeRecipeDTO, id);
     }
 
     @GetMapping("/statistics")
     public List<CoffeeStatistic> getCoffeeStatistics() {
-        return coffeeStatisticsService.getStatistics();
+        return coffeeStatisticService.getStatistics();
     }
 }
 

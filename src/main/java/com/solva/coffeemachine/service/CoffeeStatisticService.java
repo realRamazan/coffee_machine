@@ -1,18 +1,18 @@
 package com.solva.coffeemachine.service;
 
 import com.solva.coffeemachine.entity.CoffeeStatistic;
-import com.solva.coffeemachine.repository.CoffeeStatisticsRepository;
+import com.solva.coffeemachine.repository.CoffeeStatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CoffeeStatisticsService {
+public class CoffeeStatisticService {
     @Autowired
-    private CoffeeStatisticsRepository coffeeStatisticsRepository;
+    private CoffeeStatisticRepository coffeeStatisticRepository;
 
     public List<CoffeeStatistic> getStatistics() {
-        return coffeeStatisticsRepository.findAll();
+        return coffeeStatisticRepository.findAll();
     }
 }
