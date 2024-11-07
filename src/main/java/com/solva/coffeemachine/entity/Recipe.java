@@ -14,9 +14,10 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String coffeeId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "coffee_id")
+    private Coffee coffee;
 
-    @OneToMany
-    @JoinColumn(name = "recipe_ingredient_id")
+    @OneToMany(mappedBy = "recipeId")
     private List<RecipeIngredient> recipeIngredient;
 }

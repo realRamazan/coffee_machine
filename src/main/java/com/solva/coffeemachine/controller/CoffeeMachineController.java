@@ -35,7 +35,7 @@ public class CoffeeMachineController {
         return ingredientService.checkIngredients();
     }
 
-    @PostMapping("/order/{id}")
+    @GetMapping("/order/{id}")
     public List<Recipe> orderCoffee(@PathVariable String id){
         return ingredientService.orderCoffee(id);
     }

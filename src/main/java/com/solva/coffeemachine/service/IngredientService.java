@@ -34,7 +34,7 @@ public class IngredientService {
 
     public List<Recipe> orderCoffee(String id) {
         int coffeeId = Integer.parseInt(id);
-        return recipeRepository.findAllByCoffeeId(coffeeId);
+        return recipeRepository.findByCoffee_Id(coffeeId);
     }
 
     public String selectedRecipeOrder(String id) {

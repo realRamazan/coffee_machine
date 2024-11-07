@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CoffeeStatisticRepository extends JpaRepository<CoffeeStatistic, Integer> {
-    CoffeeStatistic findByCoffeeId(int coffeeId);
+    CoffeeStatistic findByCoffee_Id(int coffeeId);
 }

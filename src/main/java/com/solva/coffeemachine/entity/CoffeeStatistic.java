@@ -11,9 +11,11 @@ public class CoffeeStatistic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "coffee_id")
-    private int coffeeId;
-    @Column(name = "coffee_quantity")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "coffee_id")
+    private Coffee coffee;
+
     private int coffeeQuantity;
 
 }
